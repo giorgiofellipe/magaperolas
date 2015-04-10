@@ -1,21 +1,63 @@
 'use strict';
 var app;
 
-app = angular.module('angularParseBoilerplate', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'app.templates', 'Parse', 'angulartics', 'angulartics.google.analytics']);
+app = angular.module('magaperolas', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'app.templates', 'Parse', 'angulartics', 'angulartics.google.analytics']);
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider, ParseProvider) {
   $locationProvider.hashPrefix('!');
-  $stateProvider.state('task', {
+  $stateProvider.state('perola', {
     url: '/:locale',
-    controller: 'TaskCtrl',
-    templateUrl: 'task.html'
+    controller: 'PerolaCtrl',
+    templateUrl: 'perola.html'
   });
-  $urlRouterProvider.otherwise('/fr');
-  return ParseProvider.initialize("N2xyMRbsrFcBuzq7TXLwieDGM9FzwODEY44LLFOP", "zTAHO7HKWvbV1awq5wQlexRc368lOQtSbmycOi0O");
+  $urlRouterProvider.otherwise('/');
+  return ParseProvider.initialize("S8eGLRNVVFAmU4QnSCyWM5HXVQQOmD6rbTyDKMLa", "UBgeih7uP7Ngx0poLAPHFQWhE52cBQ3S8KSRMxVU");
 });
 
 app.run(function($rootScope, $state) {
   return $rootScope.$state = $state;
+});
+
+app.controller('PerolaCtrl', function($scope, Perola) {
+  $scope.addPerola = function() {
+    $scope.newPerola.liberada = 0;
+    $scope.newPerola.save().then(function(perola) {
+      return $scope.fetchAllPerolas();
+    });
+    return $scope.newPerola = new Perola;
+  };
+  $scope.removePerola = function(perola) {
+    return perola.destroy().then(function() {
+      return _.remove($scope.perolas, function(perola) {
+        return perola.objectId === null;
+      });
+    });
+  };
+  $scope.editingPerola = function(perola) {
+    return perola.editing = true;
+  };
+  $scope.editPerola = function(perola) {
+    perola.save();
+    return perola.editing = false;
+  };
+  $scope.cancelEditing = function(perola) {
+    perola.frase = perola._cache.frase;
+    perola.autor = perola._cache.autor;
+    perola.liberada = perola._cache.liberada;
+    return perola.editing = false;
+  };
+  $scope.fetchAllPerolas = function() {
+    return Perola.query().then(function(perolas) {
+      return $scope.perolas = perolas;
+    });
+  };
+  $scope.fetchPerolasLiberadas = function() {
+    return Perola.query().then(function(perolas) {
+      return $scope.perolas = perolas;
+    });
+  };
+  $scope.fetchPerolasLiberadas();
+  return $scope.newPerola = new Perola;
 });
 
 app.controller('TaskCtrl', function($scope, Task) {
@@ -50,6 +92,25 @@ app.controller('TaskCtrl', function($scope, Task) {
   };
   $scope.fetchTasks();
   return $scope.newTask = new Task;
+});
+
+var __hasProp = {}.hasOwnProperty,
+  __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+app.factory('Perola', function(Parse) {
+  var Perola;
+  return Perola = (function(_super) {
+    __extends(Perola, _super);
+
+    function Perola() {
+      return Perola.__super__.constructor.apply(this, arguments);
+    }
+
+    Perola.configure("Perola", "frase", "autor", "liberada");
+
+    return Perola;
+
+  })(Parse.Model);
 });
 
 var __hasProp = {}.hasOwnProperty,
