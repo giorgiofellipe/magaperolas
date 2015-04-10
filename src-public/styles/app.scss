@@ -1,0 +1,17 @@
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+body {
+  background: #999999;
+  color: white;
+}
+
+.navbar-brand, h1 {
+  text-align: center;
+}
+
+.form-control {
+}
+
+.btn-add {
+	float: right;
+}

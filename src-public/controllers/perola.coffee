@@ -2,9 +2,13 @@ app.controller 'PerolaCtrl', ($scope, Perola) ->
 
   $scope.addPerola = ->
     $scope.newPerola.liberada = 0
-    $scope.newPerola.save().then (perola) ->
-      $scope.fetchAllPerolas()
-    $scope.newPerola = new Perola
+    if $scope.newPerola.frase and $scope.newPerola.autor
+      $scope.newPerola.save().then (perola) ->
+        $scope.fetchAllPerolas()
+      $scope.newPerola = new Perola
+    else
+      alert "Todos os campos devem ser preenchidos!"
+    
 
   $scope.removePerola = (perola) ->
     perola.destroy().then () ->
