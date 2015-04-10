@@ -4,11 +4,11 @@
             "link": "angular-parse-boilerplate"
         }, 
         "angular-parse-boilerplate": {
-            "applicationId": "N2xyMRbsrFcBuzq7TXLwieDGM9FzwODEY44LLFOP",
-            "masterKey": "8QSCge7dswIvZJbVEWlnpAIjxROaykclkABTtuqw"
+            "applicationId": "S8eGLRNVVFAmU4QnSCyWM5HXVQQOmD6rbTyDKMLa",
+            "masterKey": "pG8s56CYvI0qGLnu4ruzbm2QcagcyoCZNJSYo48x"
         }
     }, 
     "global": {
-        "parseVersion": "1.3.0"
+        "parseVersion": "1.4.0"
     }
 }

@@ -8,7 +8,7 @@ gulp.task 'webserver', ['build'], ->
       livereload: true
       fallback: 'index.html'
       host: '127.0.0.1'
-      port: 8008
+      port: 6500
 
 gulp.task 'watch', ->
   runSequence 'webserver', ->

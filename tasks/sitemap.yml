@@ -1,4 +1,4 @@
-src: src/sitemap.xml
+src: ../src-public/sitemap.xml
 dest: public
 
 cache: false

@@ -10,7 +10,7 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "postinstall": "node_modules/.bin/bower install | xargs echo && gulp build",
+    "postinstall": "node_modules/.bin/bower install | gulp build",
     "watch": "node_modules/.bin/gulp watch",
     "deploy-github": "node_modules/.bin/gulp deploy-github-pages",
     "deploy-parse": "parse deploy"

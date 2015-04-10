@@ -1,6 +1,6 @@
 'use strict'
 
-app = angular.module 'angularParseBoilerplate', [
+app = angular.module 'magaperolas', [
   'ng'
   'ngResource'
   'ui.router'
@@ -21,16 +21,16 @@ app.config (
   $locationProvider.hashPrefix '!'
 
   $stateProvider
-  .state 'task',
+  .state 'perola',
     url: '/:locale'
-    controller: 'TaskCtrl'
-    templateUrl: 'task.html'
+    controller: 'PerolaCtrl'
+    templateUrl: 'perola.html'
 
-  $urlRouterProvider.otherwise '/fr'
+  $urlRouterProvider.otherwise '/'
 
   ParseProvider.initialize(
-    "N2xyMRbsrFcBuzq7TXLwieDGM9FzwODEY44LLFOP", # Application ID
-    "zTAHO7HKWvbV1awq5wQlexRc368lOQtSbmycOi0O"  # REST API Key
+    "S8eGLRNVVFAmU4QnSCyWM5HXVQQOmD6rbTyDKMLa", # Application ID
+    "UBgeih7uP7Ngx0poLAPHFQWhE52cBQ3S8KSRMxVU"  # REST API Key
   )
 
 app.run ($rootScope, $state) ->

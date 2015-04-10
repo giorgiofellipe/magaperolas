@@ -1,0 +1,32 @@
+h1 MagaPérolas \o/
+
+form(role="form", ng-submit="addPerola()")
+  .input-group
+    span Frase: 
+    input.form-control(type="text", ng-model="newPerola.frase", autofocus)
+    span  Autor: 
+    input.form-control(type="text", ng-model="newPerola.autor")
+    span.input-group-btn
+      button.btn.btn-default(type="submit") Add
+
+div(ng-repeat="perola in perolas")
+  form(ng-hide="perola.editing")
+    .input-group
+      span.input-group-addon {{ perola.random }}
+      span Frase: 
+      input.form-control(ng-model="perola._cache.frase", ng-dblclick="editingPerola(perola)", readonly)
+      span  Autor: 
+      input.form-control(ng-model="perola._cache.autor", ng-dblclick="editingPerola(perola)", readonly)
+      //- span.input-group-btn
+      //-   button.btn.btn-default(ng-click="editingPerola(perola)") Edit
+      //-   button.btn.btn-default(ng-click="removePerola(perola)") Remove
+  form(ng-submit="editPerola(perola)", ng-show="perola.editing")
+    .input-group
+      span.input-group-addon {{ perola.random }}
+      span Frase: 
+      input.form-control(ng-model="perola.frase")
+      span  Autor: 
+      input.form-control(ng-model="perola.autor")
+      span.input-group-btn
+        .btn.btn-default(ng-click="cancelEditing(perola)") Cancel
+        .btn.btn-default(ng-click="removePerola(perola)") Remove
