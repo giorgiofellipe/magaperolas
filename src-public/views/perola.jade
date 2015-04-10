@@ -12,10 +12,11 @@ form(role="form", ng-submit="addPerola()")
 
 div(ng-repeat="perola in perolas")
   form(ng-hide="perola.editing")
-      blockquote(ng-model="perola._cache.frase", ng-dblclick="editingPerola(perola)", readonly)
+      blockquote(ng-model="perola._cache.frase", readonly)
         h3 {{perola._cache.frase}}
-        cite(ng-model="perola._cache.autor", ng-dblclick="editingPerola(perola)", readonly)        
+        cite(ng-model="perola._cache.autor", readonly)        
           h5 {{perola._cache.autor}}
+          //- ng-dblclick="editingPerola(perola)", 
       //- span.input-group-btn
       //-   button.btn.btn-default(ng-click="editingPerola(perola)") Edit
       //-   button.btn.btn-default(ng-click="removePerola(perola)") Remove
@@ -26,5 +27,6 @@ div(ng-repeat="perola in perolas")
       span.label  Autor: 
       input.form-control(ng-model="perola.autor")
       span.input-group-btn
+        button.btn.btn-default(type="submit") Save
         .btn.btn-default(ng-click="cancelEditing(perola)") Cancel
         .btn.btn-default(ng-click="removePerola(perola)") Remove
