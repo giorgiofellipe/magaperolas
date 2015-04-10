@@ -21,10 +21,14 @@ app.run(function($rootScope, $state) {
 app.controller('PerolaCtrl', function($scope, Perola) {
   $scope.addPerola = function() {
     $scope.newPerola.liberada = 0;
-    $scope.newPerola.save().then(function(perola) {
-      return $scope.fetchAllPerolas();
-    });
-    return $scope.newPerola = new Perola;
+    if ($scope.newPerola.frase && $scope.newPerola.autor) {
+      $scope.newPerola.save().then(function(perola) {
+        return $scope.fetchAllPerolas();
+      });
+      return $scope.newPerola = new Perola;
+    } else {
+      return alert("Todos os campos devem ser preenchidos!");
+    }
   };
   $scope.removePerola = function(perola) {
     return perola.destroy().then(function() {
