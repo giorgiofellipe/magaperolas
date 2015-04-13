@@ -1,12 +1,11 @@
 gulp = require 'gulp'
 gutil = require 'gulp-util'
-jade = require 'gulp-jade'
 templateCache = require 'gulp-angular-templatecache'
 
-gulp.task 'jade', (done) ->
-  gulp.src(['src-public/views/**/*.jade', 'src-public/directives/**/*.jade'])
-    .pipe(jade(doctype: 'html'))
-    .on 'error', gutil.log
+gulp.task 'views', (done) ->
+  gulp.src(['src-public/views/**/*.html', 'src-public/directives/**/*.html'])
+    .pipe gulp.dest('public/views')
+  	.on 'error', gutil.log
     .pipe(templateCache(
       filename: 'templates.js'
       module: 'app.templates'

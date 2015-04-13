@@ -1,7 +1,6 @@
-src: src-public/index.jade
+src: src-public/index.html
 dest: public/
 
 cache: true
 
 pipeline:
-  jade:
