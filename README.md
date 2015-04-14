@@ -9,8 +9,7 @@ Angularjs Parse.com Boilerplate  [ ![Codeship Status for jbeurel/rider-ranking](
 
 ## Languages
 - [Coffeescript](http://coffeescript.org/)
-- [Jade](http://jade-lang.com/)
-- [Less](http://www.lesscss.org/)
+- [Sass](http://sass-lang.com/)
 
 ## Framework|Tools
 - [AngularJS](http://angularjs.org/)
