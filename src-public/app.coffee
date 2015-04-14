@@ -21,9 +21,13 @@ app.config (
 
   $stateProvider
   .state 'perola',
-    url: '/:locale'
+    url: '/'
     controller: 'PerolaCtrl'
     templateUrl: 'views/perola.html'
+  .state 'editPerola',
+    url: '/edit0'
+    controller: 'PerolaCtrl'
+    templateUrl: 'views/editPerola.html'
 
   $urlRouterProvider.otherwise '/'
 
