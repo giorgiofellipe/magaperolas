@@ -5,7 +5,6 @@ app = angular.module 'magaperolas', [
   'ngResource'
   'ui.router'
   'ui.bootstrap'
-  'app.templates'
   'Parse'
   'angulartics'
   'angulartics.google.analytics'
@@ -24,7 +23,7 @@ app.config (
   .state 'perola',
     url: '/:locale'
     controller: 'PerolaCtrl'
-    templateUrl: 'perola.html'
+    templateUrl: 'views/perola.html'
 
   $urlRouterProvider.otherwise '/'
 

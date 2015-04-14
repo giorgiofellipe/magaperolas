@@ -26,6 +26,7 @@ app.controller 'PerolaCtrl', ($scope, Perola) ->
     perola.frase = perola._cache.frase
     perola.autor = perola._cache.autor
     perola.liberada = perola._cache.liberada
+    perola.contexto = perola._cache.contexto
     perola.editing = false
 
   $scope.fetchAllPerolas = ->
