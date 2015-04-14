@@ -35,7 +35,12 @@ app.controller 'PerolaCtrl', ($scope, Perola) ->
       $scope.perolas = perolas
 
   $scope.fetchPerolasLiberadas = ->
-    Perola.query()
+    Perola.query({
+        # 'where': {
+        #   'liberada': 1
+        # }
+        'order': '-createdAt'
+      })
     .then (perolas) ->
       $scope.perolas = perolas
 
