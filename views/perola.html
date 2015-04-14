@@ -19,7 +19,7 @@
 <div ng-repeat="perola in perolas" class="ng-scope">
   <form ng-hide="perola.editing" class="ng-pristine ng-valid">
       <blockquote ng-model="perola._cache.frase" readonly="" class="ng-pristine ng-valid">
-        <h2 class="ng-binding">{{perola._cache.frase}}</h2> 
+        <h2 class="ng-binding">"{{perola._cache.frase}}"</h2> 
         <h4 class="ng-binding">{{perola._cache.contexto}}</h4>
         <cite ng-model="perola._cache.autor" readonly="" class="ng-pristine ng-valid">       
           <h5 class="ng-binding">{{perola._cache.autor}}</h5>
