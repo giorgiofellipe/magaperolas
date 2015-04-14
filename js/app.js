@@ -1,14 +1,18 @@
 'use strict';
 var app;
 
-app = angular.module('magaperolas', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'app.templates', 'Parse', 'angulartics', 'angulartics.google.analytics']);
+app = angular.module('magaperolas', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'Parse', 'angulartics', 'angulartics.google.analytics']);
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider, ParseProvider) {
   $locationProvider.hashPrefix('!');
   $stateProvider.state('perola', {
-    url: '/:locale',
+    url: '/',
     controller: 'PerolaCtrl',
-    templateUrl: 'perola.html'
+    templateUrl: 'views/perola.html'
+  }).state('editPerola', {
+    url: '/edit0',
+    controller: 'PerolaCtrl',
+    templateUrl: 'views/editPerola.html'
   });
   $urlRouterProvider.otherwise('/');
   return ParseProvider.initialize("S8eGLRNVVFAmU4QnSCyWM5HXVQQOmD6rbTyDKMLa", "UBgeih7uP7Ngx0poLAPHFQWhE52cBQ3S8KSRMxVU");
@@ -48,6 +52,7 @@ app.controller('PerolaCtrl', function($scope, Perola) {
     perola.frase = perola._cache.frase;
     perola.autor = perola._cache.autor;
     perola.liberada = perola._cache.liberada;
+    perola.contexto = perola._cache.contexto;
     return perola.editing = false;
   };
   $scope.fetchAllPerolas = function() {
@@ -56,7 +61,9 @@ app.controller('PerolaCtrl', function($scope, Perola) {
     });
   };
   $scope.fetchPerolasLiberadas = function() {
-    return Perola.query().then(function(perolas) {
+    return Perola.query({
+      'order': '-createdAt'
+    }).then(function(perolas) {
       return $scope.perolas = perolas;
     });
   };
@@ -110,7 +117,7 @@ app.factory('Perola', function(Parse) {
       return Perola.__super__.constructor.apply(this, arguments);
     }
 
-    Perola.configure("Perola", "frase", "autor", "liberada");
+    Perola.configure("Perola", "frase", "autor", "liberada", "contexto");
 
     return Perola;
 
