@@ -16,6 +16,7 @@ gulp.task 'watch', ->
     gulp.watch 'src-public/**/*.coffee', ['coffee-public']
     gulp.watch 'src-cloud/**/*.coffee', ['coffee-cloud']
     gulp.watch 'src-public/**/*.html', ['views']
+    gulp.watch 'src-public/index.html', ['views-index']
     gulp.watch 'src-public/styles/*.scss', ['sass']
     gulp.watch 'src-public/translations/*.yml', ['translations']
     gulp.watch 'vendor', ['vendor']
