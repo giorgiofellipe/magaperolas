@@ -20,8 +20,12 @@ app.config (
   $locationProvider.hashPrefix '!'
 
   $stateProvider
-  .state 'perola',
+  .state 'login',
     url: '/'
+    controller: 'LoginCtrl'
+    templateUrl: 'views/login.html'
+  .state 'perola',
+    url: '/perolas'
     controller: 'PerolaCtrl'
     templateUrl: 'views/perola.html'
   .state 'editPerola',

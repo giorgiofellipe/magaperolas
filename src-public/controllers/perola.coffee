@@ -46,3 +46,4 @@ app.controller 'PerolaCtrl', ($scope, Perola) ->
 
   $scope.fetchPerolasLiberadas()
   $scope.newPerola = new Perola
+  $scope.config = new Config
