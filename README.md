@@ -1,9 +1,6 @@
-Angularjs Parse.com Boilerplate  [ ![Codeship Status for jbeurel/rider-ranking](https://codeship.com/projects/353a5570-49bb-0132-890d-62ad83b9cfff/status?branch=master)](https://codeship.com/projects/55198)
+MagaPérolas - AngulasJS + Parse.com App
 ===============================
-
-[Demo :-)](http://ng-parse-boilerplate.parseapp.com)
-
-![Demo Screenshot](./doc/angular-parse-boilerplate.png)
+Originally from [@jbeurel](https://github.com/jbeurel/angular-parse-boilerplate)!
 
 # Technologies
 
