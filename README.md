@@ -48,3 +48,6 @@ The Backend source files are into the [src-cloud](./src-cloud) directory and com
 You can also deploy the frontend on the Github Pages of your repo by launching this command:
 
   `npm run-script deploy-github`
+
+# LICENSE
+[See.](https://github.com/giorgiofellipe/magaperolas/blob/master/LICENSE)
