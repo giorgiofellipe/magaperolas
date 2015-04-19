@@ -1,10 +1,12 @@
-app.controller 'LoginCtrl', ($scope, Config) ->
+app.controller 'LoginCtrl', ($scope, $location, ParseAuth, ParseUser) ->
 
-  $scope.login = (password) ->
-    if password = $scope.config.password
-      alert "OK!"
-    else
-      alert "Senha incorreta!"
+  $scope.login = ->
+  	ParseAuth.login($scope.user.username, $scope.user.password)
+  	$location.path('/');
+  
+  $scope.signup = ->
+  	ParseAuth.register($scope.user.username, $scope.user.password)
 
-  $scope.password = null
-  $scope.config = new Config
+  $scope.user = new ParseUser
+  # if ParseAuth.sessionToken != null
+  ParseAuth.logout()

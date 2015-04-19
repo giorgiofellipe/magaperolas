@@ -21,11 +21,11 @@ app.config (
 
   $stateProvider
   .state 'login',
-    url: '/'
+    url: '/login'
     controller: 'LoginCtrl'
     templateUrl: 'views/login.html'
   .state 'perola',
-    url: '/perolas'
+    url: '/'
     controller: 'PerolaCtrl'
     templateUrl: 'views/perola.html'
   .state 'editPerola',
