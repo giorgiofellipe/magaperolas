@@ -8,6 +8,7 @@ app = angular.module 'magaperolas', [
   'Parse'
   'angulartics'
   'angulartics.google.analytics'
+  'ngMaterial'
 ]
 
 app.config (
