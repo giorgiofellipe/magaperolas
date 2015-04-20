@@ -1,7 +1,7 @@
 'use strict';
 var app;
 
-app = angular.module('magaperolas', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'Parse', 'angulartics', 'angulartics.google.analytics']);
+app = angular.module('magaperolas', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'Parse', 'angulartics', 'angulartics.google.analytics', 'ngMaterial']);
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider, ParseProvider) {
   $locationProvider.hashPrefix('!');

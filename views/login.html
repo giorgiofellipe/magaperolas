@@ -1,11 +1,21 @@
 <div class="container">
-    <div class="card card-container">
+    <md-card class="card card-container">
         <img id="profile-img" class="profile-img-card" src="img/avatar.png" />
+        <md-card-content>
         <form class="form-signin" ng-submit="login()">
-            <input type="email" id="inputEmail" ng-model="user.username" class="form-control" placeholder="Email" required autofocus>
-            <input type="password" ng-model="user.password" id="inputPassword" class="form-control" placeholder="Senha" required>
-            <button class="btn btn-lg btn-primary btn-block btn-signin">Entrar</button>
-            <button class="btn btn-sm btn-default btn-block btn-signup" ng-click="signup()">Solicitar Acesso</button>
+			<md-input-container flex>
+				<label>E-mail</label>
+				<input required type="email" name="email" ng-model="user.username">
+			</md-input-container>
+            <!-- <input type="email" id="inputEmail" ng-model="user.username" class="form-control" placeholder="Email" required autofocus> -->
+			<md-input-container flex>
+				<label>Senha</label>
+				<input required type="password" ng-model="user.password" id="inputPassword">
+			</md-input-container>
+            <!-- <input type="password" ng-model="user.password" id="inputPassword" class="form-control" placeholder="Senha" required> -->
+            <md-button class="md-raised md-primary">Entrar</md-button>
+            <md-button class="md-raised" ng-click="signup()">Solicitar Acesso</md-button>
         </form><!-- /form -->
-    </div><!-- /card-container -->
+        </md-card-content>
+    </md-card>
 </div><!-- /container -->
