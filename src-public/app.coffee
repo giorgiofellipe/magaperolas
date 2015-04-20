@@ -40,8 +40,9 @@ app.config (
     "UBgeih7uP7Ngx0poLAPHFQWhE52cBQ3S8KSRMxVU"  # REST API Key
   )
 
-app.run ($rootScope, $state) ->
+app.run ($rootScope, $state, $location) ->
   $rootScope.$state = $state
-  $rootScope.$on "$routeChangeStart", (event, next, current) ->
-    if $rootScope.loggedInUser == null
+  $rootScope.$on "$locationChangeStart", (event, next, current) ->
+    console.log($rootScope.loggedInUser)
+    if $rootScope.loggedInUser == null or $rootScope.loggedInUser == undefined
       $location.path("/login");

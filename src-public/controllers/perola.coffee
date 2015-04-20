@@ -43,6 +43,6 @@ app.controller 'PerolaCtrl', ($scope, $location, Perola, ParseAuth) ->
       })
     .then (perolas) ->
       $scope.perolas = perolas
-
+      
   $scope.fetchPerolasLiberadas()
   $scope.newPerola = new Perola
