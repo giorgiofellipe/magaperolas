@@ -44,7 +44,5 @@ app.controller 'PerolaCtrl', ($scope, $location, Perola, ParseAuth) ->
     .then (perolas) ->
       $scope.perolas = perolas
 
-  if ParseAuth.currentUser == null
-    $location.path('/login')
   $scope.fetchPerolasLiberadas()
   $scope.newPerola = new Perola

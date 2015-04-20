@@ -42,3 +42,6 @@ app.config (
 
 app.run ($rootScope, $state) ->
   $rootScope.$state = $state
+  $rootScope.$on "$routeChangeStart", (event, next, current) ->
+    if $rootScope.loggedInUser == null
+      $location.path("/login");
