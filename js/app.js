@@ -22,10 +22,11 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider, Parse
   return ParseProvider.initialize("S8eGLRNVVFAmU4QnSCyWM5HXVQQOmD6rbTyDKMLa", "UBgeih7uP7Ngx0poLAPHFQWhE52cBQ3S8KSRMxVU");
 });
 
-app.run(function($rootScope, $state) {
+app.run(function($rootScope, $state, $location) {
   $rootScope.$state = $state;
-  return $rootScope.$on("$routeChangeStart", function(event, next, current) {
-    if ($rootScope.loggedInUser === null) {
+  return $rootScope.$on("$locationChangeStart", function(event, next, current) {
+    console.log($rootScope.loggedInUser);
+    if ($rootScope.loggedInUser === null || $rootScope.loggedInUser === void 0) {
       return $location.path("/login");
     }
   });
