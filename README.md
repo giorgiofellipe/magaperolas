@@ -13,6 +13,7 @@ Originally from [@jbeurel](https://github.com/jbeurel/angular-parse-boilerplate)
 - [Bootstrap3](http://getbootstrap.com/)
 - [Gulp](http://gulpjs.com/)
 - Livereload
+- [Angular Material](https://github.com/angular/material)
 
 # Requirements
 
