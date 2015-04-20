@@ -1,26 +1,37 @@
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
 $cor-principal: #22b4a1;
 body {
-  background: $cor-principal;
-  color: white;
+	background: $cor-principal;
+	color: white;
+	height: auto !important;
+	min-height: 100%;
 }
 
 .navbar-brand, h1 {
-  text-align: center;
+	text-align: center;
 }
 
 .form-control {
 }
 
+
 .btn-add {
+	> md-icon {
+		font-size: 25px;
+		line-height: 100%;
+	}
 	float: right;
+	background-color: $cor-principal !important;
+	background: rgba(0,0,0,0.55) !important;
 }
 
 .header {  
 	width: 100%;
-	height: 100px;
-	line-height: 100px;
+	height: 70px;
+	line-height: 70px;
 	text-align: center;
+	background-color: $cor-principal !important;
 	h1 {
 		display: inline-block;
 		vertical-align: middle;
@@ -54,13 +65,6 @@ body {
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 50px;
-    /* shadows and rounded borders */
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .profile-img-card {
@@ -102,6 +106,32 @@ body {
 	    outline: 0;
 	    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
 	    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+	}
+	md-input-container {
+		padding-bottom: 0px;
+		&.md-default-theme {
+			label, 
+			.md-placeholder,
+			.md-input,
+			&:not(.md-input-invalid).md-input-focused label,
+			&:not(.md-input-invalid).md-input-focused .md-input {
+				color: $cor-principal;
+				border-color: $cor-principal;
+			}
+		}
+	}
+}
+
+.form-add {	
+	md-input-container.md-default-theme {
+		label, 
+		.md-placeholder,
+		.md-input,
+		&:not(.md-input-invalid).md-input-focused label,
+		&:not(.md-input-invalid).md-input-focused .md-input {
+			color: white;
+			border-color: white;
+		}
 	}
 }
 

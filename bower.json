@@ -10,7 +10,10 @@
     "angulartics": "~0.17.1",
     "bootstrap-sass": "3.3.x",
     "moment": "2.6.x",
-    "lodash": "~2.4.1"
-
+    "lodash": "~2.4.1",
+    "angular-material": "*"
+  },
+  "resolutions": {
+    "angular": "1.3.x"
   }
 }

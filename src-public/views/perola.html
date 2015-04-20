@@ -1,21 +1,25 @@
-<form role="form" ng-submit="addPerola()" class="ng-scope ng-pristine ng-valid">
-  <div class="input-group-sm">
-    <span class="input-group-addon">Frase: </span>
-    <input type="text" ng-model="newPerola.frase" autofocus="" class="form-control ng-pristine ng-valid">
-  </div>
-  <div class="input-group-sm">
-    <span class="input-group-addon"> Contexto: </span>
-    <input type="text" ng-model="newPerola.contexto" class="form-control ng-pristine ng-valid">
-  </div>
-  <div class="input-group-sm">
-    <span class="input-group-addon"> Autor: </span>
-    <input type="text" ng-model="newPerola.autor" class="form-control ng-pristine ng-valid">
-  </div>
-  <span class="input-group-btn">
-    <button type="submit" class="btn btn-default btn-add">Add</button>
-  </span>
+<form class="form-add" role="form" ng-submit="addPerola()" class="ng-scope ng-pristine ng-valid">
+  <md-input-container>
+    <label>Frase</label>
+    <input ng-model="newPerola.frase" class="ng-pristine ng-valid" autofocus>
+  </md-input-container>
+  <md-input-container>
+    <label>Contexto</label>
+    <input ng-model="newPerola.contexto" class="ng-pristine ng-valid" >
+  </md-input-container>
+  <md-input-container>
+    <label>Autor</label>
+    <input ng-model="newPerola.autor" class="ng-pristine ng-valid" >
+  </md-input-container>
+  <section layout="row" layout-sm="column" layout-align="center center">
+    <md-button class="md-fab md-mini md-primary btn-add" aria-label="Add">
+      <md-icon class="fa fa-plus"></md-icon>
+    </md-button>
+  </section>
 </form>
 <div ng-repeat="perola in perolas" class="ng-scope">
+<md-card>
+<md-card-content>
   <form ng-hide="perola.editing" class="ng-pristine ng-valid">
       <blockquote ng-model="perola._cache.frase" readonly="" class="ng-pristine ng-valid">
         <h2 class="ng-binding">"{{perola._cache.frase}}"</h2> 
@@ -44,4 +48,6 @@
         <div ng-click="removePerola(perola)" class="btn btn-default">Remove</div>
       </span>
   </form>
+</md-card-content>
+</md-card>  
 </div>
