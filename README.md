@@ -21,6 +21,7 @@ Originally from [@jbeurel](https://github.com/jbeurel/angular-parse-boilerplate)
 
 # Installation
 
+  `bower install`
   `npm install`
 
 # Configuration
