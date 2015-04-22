@@ -1,7 +1,7 @@
 'use strict';
 var app;
 
-app = angular.module('magaperolas', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'Parse', 'angulartics', 'angulartics.google.analytics', 'ngMaterial']);
+app = angular.module('magaperolas', ['ng', 'ngResource', 'ui.router', 'ui.bootstrap', 'Parse', 'angulartics', 'angulartics.google.analytics', 'ngMaterial', 'hSweetAlert']);
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider, ParseProvider) {
   $locationProvider.hashPrefix('!');
@@ -32,7 +32,7 @@ app.run(function($rootScope, $state, $location) {
   });
 });
 
-app.controller('LoginCtrl', function($scope, $location, ParseAuth, CustomUser, $rootScope) {
+app.controller('LoginCtrl', function($scope, $location, ParseAuth, CustomUser, $rootScope, sweet) {
   $scope.loginCallback = function(user) {
     $rootScope.loggedInUser = user;
     return $location.path('/');
@@ -50,7 +50,7 @@ app.controller('LoginCtrl', function($scope, $location, ParseAuth, CustomUser, $
       if (users[0].liberado === true) {
         return ParseAuth.login(username, password, callback);
       } else {
-        alert("Usuário não liberado!");
+        sweet.show("Usuário não liberado!");
         return $location.path('/login');
       }
     });
@@ -62,18 +62,18 @@ app.controller('LoginCtrl', function($scope, $location, ParseAuth, CustomUser, $
     password = $scope.user.password;
     if (username && password) {
       $scope.user.save().then(function(user) {
-        return alert("Solicitação enviada com sucesso!");
+        return sweet.show("Sucesso!", "Solicitação enviada com sucesso!", "success");
       });
       return $scope.user = new CustomUser;
     } else {
-      return alert("Todos os campos devem ser preenchidos!");
+      return sweet.show("Oops!", "Todos os campos devem ser preenchidos!", "error");
     }
   };
   $scope.user = new CustomUser;
   return ParseAuth.logout();
 });
 
-app.controller('PerolaCtrl', function($scope, $location, Perola, ParseAuth) {
+app.controller('PerolaCtrl', function($scope, $location, Perola, ParseAuth, sweet) {
   $scope.addPerola = function() {
     $scope.newPerola.liberada = 0;
     if ($scope.newPerola.frase && $scope.newPerola.autor) {
@@ -82,7 +82,7 @@ app.controller('PerolaCtrl', function($scope, $location, Perola, ParseAuth) {
       });
       return $scope.newPerola = new Perola;
     } else {
-      return alert("Todos os campos devem ser preenchidos!");
+      return sweet.show("Oops!", "Todos os campos devem ser preenchidos!", "error");
     }
   };
   $scope.removePerola = function(perola) {
