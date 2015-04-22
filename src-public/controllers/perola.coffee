@@ -1,4 +1,4 @@
-app.controller 'PerolaCtrl', ($scope, $location, Perola, ParseAuth) ->
+app.controller 'PerolaCtrl', ($scope, $location, Perola, ParseAuth, sweet) ->
 
   $scope.addPerola = ->
     $scope.newPerola.liberada = 0
@@ -7,7 +7,7 @@ app.controller 'PerolaCtrl', ($scope, $location, Perola, ParseAuth) ->
         $scope.fetchAllPerolas()
       $scope.newPerola = new Perola
     else
-      alert "Todos os campos devem ser preenchidos!"
+      sweet.show("Oops!", "Todos os campos devem ser preenchidos!", "error");
     
 
   $scope.removePerola = (perola) ->

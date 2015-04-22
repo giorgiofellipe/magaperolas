@@ -11,7 +11,9 @@
     "bootstrap-sass": "3.3.x",
     "moment": "2.6.x",
     "lodash": "~2.4.1",
-    "angular-material": "*"
+    "angular-material": "*",
+    "sweetalert": "*",
+    "angular-h-sweetalert": "*"
   },
   "resolutions": {
     "angular": "1.3.x"

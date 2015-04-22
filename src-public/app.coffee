@@ -9,6 +9,7 @@ app = angular.module 'magaperolas', [
   'angulartics'
   'angulartics.google.analytics'
   'ngMaterial'
+  'hSweetAlert'
 ]
 
 app.config (

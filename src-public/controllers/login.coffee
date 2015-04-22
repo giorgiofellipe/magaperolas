@@ -1,4 +1,4 @@
-app.controller 'LoginCtrl', ($scope, $location, ParseAuth, CustomUser, $rootScope) ->
+app.controller 'LoginCtrl', ($scope, $location, ParseAuth, CustomUser, $rootScope, sweet) ->
 
   $scope.loginCallback = (user) ->
     $rootScope.loggedInUser = user
@@ -17,7 +17,7 @@ app.controller 'LoginCtrl', ($scope, $location, ParseAuth, CustomUser, $rootScop
       if users[0].liberado == true
         ParseAuth.login(username, password, callback)
       else
-        alert "Usuário não liberado!"
+        sweet.show("Usuário não liberado!")
         $location.path('/login')
 
   $scope.signup = ->
@@ -26,10 +26,10 @@ app.controller 'LoginCtrl', ($scope, $location, ParseAuth, CustomUser, $rootScop
     password = $scope.user.password
     if username and password
       $scope.user.save().then (user) ->   
-        alert "Solicitação enviada com sucesso!"
+        sweet.show("Sucesso!","Solicitação enviada com sucesso!","success");
       $scope.user = new CustomUser
     else
-      alert "Todos os campos devem ser preenchidos!"
+      sweet.show("Oops!", "Todos os campos devem ser preenchidos!", "error");
 
   $scope.user = new CustomUser
   # if ParseAuth.sessionToken != null

@@ -18,6 +18,8 @@ gulp.task 'vendor', (done) ->
     'bower_components/angular-animate/angular-animate.js'
     'bower_components/angular-aria/angular-aria.js'
     'bower_components/angular-material/angular-material.js'
+    'bower_components/sweetalert/lib/sweet-alert.min.js'
+    'bower_components/angular-h-sweetalert/dist/ngSweetAlert.min.js'
   ]
   .pipe(concat('vendor.js'))
   .on 'error', gutil.log
