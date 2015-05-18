@@ -1,6 +1,7 @@
 gulp = require 'gulp'
 gutil = require 'gulp-util'
 concat = require 'gulp-concat'
+uglify = require('gulp-uglify');
 
 gulp.task 'vendor', (done) ->
   gulp.src [
@@ -21,7 +22,8 @@ gulp.task 'vendor', (done) ->
     'bower_components/sweetalert/lib/sweet-alert.min.js'
     'bower_components/angular-h-sweetalert/dist/ngSweetAlert.min.js'
   ]
-  .pipe(concat('vendor.js'))
+  .pipe concat('vendor.js')
+  .pipe uglify()
   .on 'error', gutil.log
   .pipe gulp.dest('public/js')
   .on 'end', done
