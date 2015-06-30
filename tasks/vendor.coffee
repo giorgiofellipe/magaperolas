@@ -23,7 +23,6 @@ gulp.task 'vendor', (done) ->
     'bower_components/angular-h-sweetalert/dist/ngSweetAlert.min.js'
   ]
   .pipe concat('vendor.js')
-  .pipe uglify()
   .on 'error', gutil.log
   .pipe gulp.dest('public/js')
   .on 'end', done
