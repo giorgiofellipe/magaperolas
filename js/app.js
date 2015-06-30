@@ -32,6 +32,35 @@ app.run(function($rootScope, $state, $location) {
   });
 });
 
+app.controller('AppCtrl', function($scope) {
+  $scope.currentUser = null;
+  return $scope.setCurrentUser = function(user) {
+    return $scope.currentUser = user;
+  };
+});
+
+app.factory('AuthResolver', function($q, $rootScope, $state) {
+  var resolve;
+  return resolve = function() {
+    var deferred, unwatch;
+    deferred = $q.defer();
+    unwatch = $rootScope.$watch('currentUser', function(currentUser) {
+      console.log(currentUser);
+      if (angular.isDefined(currentUser)) {
+        if (currentUser) {
+          return deferred.resolve(currentUser);
+        } else {
+          deferred.reject();
+          return $state.go('login');
+        }
+      } else {
+        return unwatch();
+      }
+    });
+    return deferred.promise;
+  };
+});
+
 app.controller('LoginCtrl', function($scope, $location, ParseAuth, CustomUser, $rootScope, sweet) {
   $scope.loginCallback = function(user) {
     $rootScope.loggedInUser = user;

@@ -18,36 +18,36 @@
   </section>
 </form>
 <div ng-repeat="perola in perolas" class="ng-scope">
-<md-card>
-<md-card-content>
-  <form ng-hide="perola.editing" class="ng-pristine ng-valid">
-      <blockquote ng-model="perola._cache.frase" readonly="" class="ng-pristine ng-valid">
-        <h2 class="ng-binding">"{{perola._cache.frase}}"</h2> 
-        <h4 class="ng-binding">{{perola._cache.contexto}}</h4>
-        <cite ng-model="perola._cache.autor" readonly="" class="ng-pristine ng-valid">       
-          <h5 class="ng-binding">{{perola._cache.autor}}</h5>
-        </cite>
-      </blockquote>
-    </form>
-    <form ng-submit="editPerola(perola)" ng-show="perola.editing" class="ng-pristine ng-valid ng-hide">    
-      <div class="input-group-sm">
-        <span class="input-group-addon">Frase: </span>
-        <input type="text" ng-model="perola.frase" autofocus="" class="form-control ng-pristine ng-valid">
-      </div>
-      <div class="input-group-sm">
-        <span class="input-group-addon"> Contexto: </span>
-        <input type="text" ng-model="perola.contexto" class="form-control ng-pristine ng-valid">
-      </div>
-      <div class="input-group-sm">
-        <span class="input-group-addon"> Autor: </span>
-        <input type="text" ng-model="perola.autor" class="form-control ng-pristine ng-valid">
-      </div>
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-default">Save</button>
-        <div ng-click="cancelEditing(perola)" class="btn btn-default">Cancel</div>
-        <div ng-click="removePerola(perola)" class="btn btn-default">Remove</div>
-      </span>
-  </form>
-</md-card-content>
-</md-card>  
+  <md-card class="card-perola">
+    <md-card-content>
+      <form ng-hide="perola.editing" class="ng-pristine ng-valid">
+          <blockquote ng-model="perola._cache.frase" readonly="" class="ng-pristine ng-valid">
+            <h2 class="ng-binding">"{{perola._cache.frase}}"</h2> 
+            <h4 class="ng-binding">{{perola._cache.contexto}}</h4>
+            <cite ng-model="perola._cache.autor" readonly="" class="ng-pristine ng-valid">       
+              <h5 class="ng-binding">{{perola._cache.autor}}</h5>
+            </cite>
+          </blockquote>
+        </form>
+        <form ng-submit="editPerola(perola)" ng-show="perola.editing" class="ng-pristine ng-valid ng-hide">    
+          <div class="input-group-sm">
+            <span class="input-group-addon">Frase: </span>
+            <input type="text" ng-model="perola.frase" autofocus="" class="form-control ng-pristine ng-valid">
+          </div>
+          <div class="input-group-sm">
+            <span class="input-group-addon"> Contexto: </span>
+            <input type="text" ng-model="perola.contexto" class="form-control ng-pristine ng-valid">
+          </div>
+          <div class="input-group-sm">
+            <span class="input-group-addon"> Autor: </span>
+            <input type="text" ng-model="perola.autor" class="form-control ng-pristine ng-valid">
+          </div>
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">Save</button>
+            <div ng-click="cancelEditing(perola)" class="btn btn-default">Cancel</div>
+            <div ng-click="removePerola(perola)" class="btn btn-default">Remove</div>
+          </span>
+      </form>
+    </md-card-content>
+  </md-card>  
 </div>
