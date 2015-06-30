@@ -2,7 +2,7 @@
 
 $cor-principal: #22b4a1;
 body {
-	background: $cor-principal;
+	background: darken($cor-principal,10%);
 	color: white;
 	height: auto !important;
 	min-height: 100%;
@@ -68,6 +68,21 @@ body {
     padding: 10px 15px 20px;
     margin: 0 auto 15px;
     margin-top: 20px;
+}
+
+.card-perola {  
+    background-color: #F7F7F7;
+    color: $cor-principal;
+    md-card-content {
+      padding: 0;
+    }
+    h2 {
+      color: darken($cor-principal, 10%);
+    }
+    blockquote {
+      border-color: $cor-principal;
+      margin: 0;
+    }
 }
 
 .profile-img-card {
